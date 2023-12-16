@@ -26,4 +26,4 @@ def test_multiple_college_matches():
     api_key = "api_key"
 
     result = get_college_info(college_name_input, api_key)
-    assert result is print(f"Multiple possible matches found for '{college_name}'. Please specify one below and reinput into the function:")
+    assert result is None

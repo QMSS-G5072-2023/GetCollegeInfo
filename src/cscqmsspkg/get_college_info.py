@@ -84,7 +84,7 @@ def get_college_info(college_name, api_key):
 
     # Check if there are multiple matches and ask the user to specify one if so
     if len(df) > 1:
-        print(f"Multiple possible matches found for '{college_name}'. Please specify one below and reinput into the function:")
+        print(f"Multiple possible matches found for '{college_name}'. Either select college below or be more specific and retry function:")
         for idx, row in df.iterrows():
             print(f"{idx + 1}. {row['school.name']}")
         return None
