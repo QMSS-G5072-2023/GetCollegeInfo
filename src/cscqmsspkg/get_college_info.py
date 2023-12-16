@@ -6,17 +6,17 @@ import os
 """
     Obtains summary information on colleges throughout the United States, including admissions, tuition, demographics.
 
-    Args:
-    - school.name (str): College name input
+    Parameters:
+    - college_name_input (str): The name of the college to be queried.
     - api_key (str): The API key.
 
     Returns:
     - Prints information results from college query.
 
-    This function first checks whether the user has put in the college name as intended, since many colleges have similar names. If there are
-    many matching similarities, the user must pick from the list of possible matching colleges. Once the   
-    user has input the correct college name, the user will retrieve results related to summary information, which may be useful if the  
-    user is interested in that college, or is just curious about the information. 
+    This function first checks whether the user has put in the college name as intended, since many colleges have similar names. If there is
+    more than one similar name, the user must pick from the list of possible matching colleges. Once the user has input the correct college name,
+    the user will retrieve results related to summary information, which may be useful if the user is interested in that college, or is just
+    curious about the information. 
 
      Examples
     --------
@@ -78,18 +78,18 @@ def get_college_info(college_name, api_key):
             print(f"No information found for {college_name}. Please check the college name.")
             return None
 
-    # Create DataFrame from the response
+    # Create a DataFrame from the response to array data
     df = pd.json_normalize(data)
 
 
-    # Check if there are multiple matches and ask the user to specify one
+    # Check if there are multiple matches and ask the user to specify one if so
     if len(df) > 1:
         print(f"Multiple possible matches found for '{college_name}'. Please specify one below and reinput into the function:")
         for idx, row in df.iterrows():
             print(f"{idx + 1}. {row['school.name']}")
         return None
             
-    # Extract relevant information from DataFrame
+    # Extract relevant information from our DataFrame
     college_info = {
             "Name": college_name,
             "Location": f"{df['school.city'].iloc[0]}, {df['school.state'].iloc[0]}",
@@ -132,7 +132,8 @@ def get_college_info(college_name, api_key):
         }}
         
     return college_info
-        
+
+    # If the request was successful, print results
     if college_info:
         for key, value in college_info.items():
             print(f"{key}: {value}")
