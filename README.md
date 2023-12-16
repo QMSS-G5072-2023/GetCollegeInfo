@@ -10,7 +10,9 @@ $ pip install cscqmsspkg
 
 ## Usage
  Obtains summary information on colleges throughout the United States, including admissions, tuition, demographics.
+ 
  You must set up an API key at https://api.data.gov/signup/
+ 
  More info on API at https://collegescorecard.ed.gov/data/documentation/
 
     Parameters:
@@ -77,6 +79,7 @@ $ pip install cscqmsspkg
 
 ## Dependencies 
 This package requires the following Python libraries:
+
     Pandas
     json
     requests
