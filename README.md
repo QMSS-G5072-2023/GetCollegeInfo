@@ -10,6 +10,8 @@ $ pip install cscqmsspkg
 
 ## Usage
  Obtains summary information on colleges throughout the United States, including admissions, tuition, demographics.
+ You must set up an API key at https://api.data.gov/signup/
+ More info on API at https://collegescorecard.ed.gov/data/documentation/
 
     Parameters:
     - college_name_input (str): The name of the college to be queried.
@@ -45,12 +47,39 @@ $ pip install cscqmsspkg
      Sex Demographics: {'Male': 0.4842, 'Female': 0.5158}
      Student Size: {'Undergrad': 38424, 'Grad': 11085}]
 
+    >>> from cscqmsspkg import cscqmsspkg
+    >>> college_name_input = "State"  
+    >>> api_key = 'api_key'
+    >>> get_college_info(college_name_input, api_key)
+    >>> returns: 
+
+    Multiple possible matches found for 'State'. Either be more specific or choose one below and retry:
+    1. Florida State University
+    2. Texas State University
+    3. Washington State Community College
+    4. North Carolina State University at Raleigh
+    5. Valdosta State University
+    6. Bay State College
+    7. Michigan State University
+    8. Southwestern Oklahoma State University
+    9. Saint Johns River State College
+    10. Northwestern Oklahoma State University
+    11. Columbus State Community College
+    12. Cincinnati State Technical and Community College
+    13. College of Staten Island CUNY
+    14. Louisiana State University Health Sciences Center-Shreveport
+    15. Thomas Edison State University
+    16. Saint Cloud State University
+    17. Jefferson State Community College
+    18. Arkansas State University-Newport
+    19. George C Wallace State Community College-Hanceville
+    20. Pennsylvania State University-Penn State Brandywine
+
 ## Dependencies 
 This package requires the following Python libraries:
-
-Pandas
-json
-requests
+    Pandas
+    json
+    requests
 
 ## Contributing
 
